@@ -1,6 +1,6 @@
 # FUTURE_CS_01
 
-Cyber Security Internship Task 1
+Cyber Security Internship Task 1 - Vulnerability Assessment Report
 
 ## Objective
 Conduct a read-only vulnerability assessment of a public website.
