@@ -1,0 +1,56 @@
+Target: https://demo.owasp-juice.shop/
+
+Tool used: SecurityHeaders.com
+
+Assessment Date: 16 June 2026
+
+Overall Grade: F
+
+Observation: The analyzed response lacked several recommended HTTP security headers. The scan returned an HTTP 503 Service Unavailable response; therefore, these findings should be validated against normal application responses.
+
+Findings:
+
+1. Missing Strict-Transport-Security Header
+Risk Level: Medium
+
+Description: HSTS ensures browsers communicate with the website only over HTTPS and prevents protocol downgrade attacks.
+
+Recommendation: Implement the Strict-Transport-Security header with an appropriate max-age value and include subdomains where applicable.
+
+2. Missing Content-Security-Policy Header
+Risk Level: High
+
+Description: A Content Security Policy helps reduce the risk of Cross-Site Scripting (XSS) by restricting which resources a browser is allowed to load.
+
+Recommendation: Implement a strict CSP that allows only trusted sources.
+
+3. Missing X-Frame-Options Header
+Risk Level: Medium
+
+Description: Without this header, the website may be vulnerable to clickjacking attacks through malicious framing.
+
+Recommendation: Use X-Frame-Options: SAMEORIGIN or implement an equivalent CSP frame-ancestors directive.
+
+4. Missing X-Content-Type-Options Header
+Risk Level: Low
+
+Description: Without this header, browsers may perform MIME-type sniffing, which can lead to unexpected content interpretation.
+
+Recommendation: Configure X-Content-Type-Options: nosniff.
+
+5. Missing Referrer-Policy Header
+Risk Level: Low
+
+Description: A missing Referrer Policy may result in unnecessary information being shared when users navigate away from the site.
+
+Recommendation: Configure an appropriate Referrer-Policy based on privacy requirements.
+
+6. Missing Permissions-Policy Header
+Risk Level: Low
+
+Description: Without a Permissions Policy, browser APIs and features may be available with broader permissions than required.
+
+Recommendation: Define a Permissions-Policy to restrict unnecessary browser capabilities.
+
+
+Additional Observation: The response was served through a Heroku server and returned an HTTP 503 status code during the scan. This may indicate temporary service unavailability or a configuration issue requiring further validation.

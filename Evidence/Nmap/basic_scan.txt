@@ -1,0 +1,19 @@
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-06-14 17:36 EDT
+Nmap scan report for demo.owasp-juice.shop (81.169.145.156)
+Host is up (3.0s latency).
+Other addresses for demo.owasp-juice.shop (not scanned): 2a01:238:20a:202:1156::
+rDNS record for 81.169.145.156: w9c.rzone.de
+Not shown: 991 closed tcp ports (reset)
+
+PORT     STATE    SERVICE
+21/tcp   open     ftp
+25/tcp   filtered smtp
+80/tcp   open     http
+135/tcp  filtered msrpc
+139/tcp  filtered netbios-ssn
+443/tcp  open     https
+445/tcp  filtered microsoft-ds
+514/tcp  filtered shell
+8080/tcp open     http-proxy
+
+Nmap done: 1 IP address (1 host up) scanned in 353.89 seconds

@@ -1,0 +1,57 @@
+OWASP ZAP Passive Scan Findings:
+
+Target Website: https://demo.owasp-juice.shop
+Tool Used: OWASP ZAP
+Scan Type: Passive Security Assessment (Read-Only)
+Assessment Scope: Publicly accessible pages only
+
+1. Missing Security Headers
+
+Risk Level: Low
+
+Issue: The application does not consistently implement recommended HTTP security headers such as Strict-Transport-Security (HSTS) and X-Content-Type-Options.
+
+Business Impact: Missing security headers may increase exposure to attacks such as protocol downgrade attacks and improper browser content interpretation.
+
+Recommendation:
+- Enable Strict-Transport-Security to enforce HTTPS connections.
+- Configure X-Content-Type-Options: nosniff to prevent MIME-type sniffing.
+- Regularly review and implement recommended HTTP security headers.
+
+2. Server Information Disclosure
+
+Risk Level: Low
+
+Issue: The web server exposes information through HTTP response headers, revealing details about underlying technologies.
+
+Business Impact: Attackers may use this information during reconnaissance to identify technologies and potentially target known vulnerabilities.
+
+Recommendation: 
+- Remove or minimize unnecessary server identification details.
+- Configure the server to avoid exposing version or technology information.
+3. Session Identifier Exposure in URL
+
+Risk Level: Low
+
+Issue: Session-related identifiers were detected within URL parameters.
+
+Business Impact: Session identifiers in URLs may be stored in browser history, logs, or transmitted through referrer headers, increasing the risk of unintended exposure.
+
+Recommendation: 
+- Use secure HTTP cookies for session management.
+- Avoid passing session identifiers through URL parameters.
+4. Information Disclosure
+
+Risk Level: Informational
+
+Issue: Comments and additional application information were identified within responses.
+
+Business Impact: Exposed information may help attackers gain a better understanding of the application’s internal structure.
+
+Recommendation:
+- Remove unnecessary comments from production code.
+- Minimize exposure of internal implementation details.
+
+Conclusion
+
+The passive security assessment identified multiple low-risk security weaknesses and informational disclosures. No high or medium severity vulnerabilities were identified during the assessment. No active exploitation, brute-force attempts, or harmful actions were performed. The assessment remained within the defined read-only scope.
