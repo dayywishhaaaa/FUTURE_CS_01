@@ -1,61 +1,83 @@
-# Vulnerability Assessment Report - OWASP Juice Shop
+# Vulnerability Assessment Report – OWASP Juice Shop
 
 ## Objective
 
-Conduct a read-only vulnerability assessment of the OWASP Juice Shop demo application to identify common web security weaknesses.
+Conduct a passive vulnerability assessment of the OWASP Juice Shop demonstration application to identify common web application security weaknesses.
 
+## Target Application
 
-## Target
-
-Website: https://demo.owasp-juice.shop/#/
-
+**Website:** https://demo.owasp-juice.shop/#/
 
 ## Scope
 
 This assessment was limited to passive security testing only.
 
-Allowed Activities:
-- Nmap service enumeration
-- OWASP ZAP passive scanning
+### Allowed Activities
+
+- Network reconnaissance using Nmap
+- Service detection and version identification
+- OWASP ZAP passive web application scanning
 - HTTP security header analysis
 - Browser-based inspection
 
-Not Performed:
-- Exploitation of vulnerabilities
-- Login bypass attempts
+### Activities Not Performed
+
+- Exploitation of identified vulnerabilities
+- Authentication bypass attempts
 - Brute-force attacks
 - Denial-of-Service (DoS) testing
-
+- Modification of application data
 
 ## Tools Used
 
-- Kali Linux 2025.2
+- Kali Linux 2025.2 (VMware)
 - Nmap 7.95
-- OWASP ZAP
+- OWASP ZAP 2.17.0
 - Firefox Developer Tools
 - Git & GitHub
-
 
 ## Methodology
 
 1. Performed network reconnaissance using Nmap.
-2. Identified exposed services and their versions.
-3. Conducted passive analysis using OWASP ZAP.
-4. Reviewed HTTP response headers.
-5. Documented findings with evidence and remediation recommendations.
+2. Identified exposed services and technologies.
+3. Conducted passive vulnerability analysis using OWASP ZAP.
+4. Reviewed HTTP responses and security configurations.
+5. Documented identified findings with evidence and remediation recommendations.
 
+## Risk Summary
 
-## Findings Summary
+|  Risk Level   | Number of Findings |
+|---------------|--------------------|
+|    Medium     |         6          |
+|     Low       |         5          |
+| Informational |         4          |
+|     High      |         0          |
+|   **Total**   |      **15**        |
+|---------------|--------------------|
 
-| Finding                              |   Risk Level  |
-|--------------------------------------|---------------|
-| Missing Security Headers             |      Low      |
-| Server Information Disclosure        |      Low      |
-| Session Identifier Exposure in URL   |      Low      |
-| Information Disclosure               | Informational |
-|--------------------------------------|---------------|
+## Key Findings
 
-## Repository Contents
+### Medium Risk
+- Content Security Policy (CSP) Header Not Set
+- Cross-Domain Misconfiguration (CORS)
+- Missing Anti-Clickjacking Protection
+- Session Identifier Exposure in URL
+- Application Error Disclosure
+
+### Low Risk
+- Strict-Transport-Security (HSTS) Header Not Set
+- X-Content-Type-Options Header Missing
+- Debug Error Message Disclosure
+- Private IP Disclosure
+- Unix Timestamp Disclosure
+
+### Informational Findings
+- Authentication Request Identified
+- Suspicious Comments Detected
+- Cache-Control Directives Require Review
+- Modern Web Application Identified
+
+## Repository Structure
 
 ### Evidence
 Contains:
